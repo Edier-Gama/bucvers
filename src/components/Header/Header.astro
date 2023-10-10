@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import buckverseLogo from "../../assets/bucverse-logo.jpeg";
+const response = await fetch("http://localhost:3000/users");
+const data = await response.json();
+---
+
+<header>
+  <nav>
+    <a href="/books"><p>Books</p></a>
+    <a href="/login"><p>Log In</p></a>
+    <a href="/signup"><p>Sign Up</p></a>
+  </nav>
+
+  <style>
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    :root {
+      --fonts-color: black;
+    }
+
+    nav {
+      position: relative;
+      display: flex;
+      justify-content: right;
+      margin-right: 10px;
+    }
+
+    a {
+      margin: 10px;
+      color: var(--fonts-color);
+      text-decoration: none;
+    }
+  </style>
+</header>

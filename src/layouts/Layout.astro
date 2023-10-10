@@ -1,0 +1,37 @@
+---
+import Header from "../components/Header/Header.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bucverse</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --principal-font: "Gabarito";
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  a {
+    font-family: var(--principal-font);
+  }
+</style>
