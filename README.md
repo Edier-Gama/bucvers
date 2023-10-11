@@ -1,1 +1,1 @@
-the app fot writers that scales with you
+the app for writers that scales with you
