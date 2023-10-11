@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import writer from "../../public/assets/writer.svg";
+import Buttons from "../buttons/buttons.astro";
+import Header from "../header/header.astro";
+---
+
+<main class="animate__animated animate__slideInLeft">
+  <Header />
+  <div class="main_container">
+    <h1>
+      The app for <a>writers</a>
+      <br /> that <a>scales</a> with you
+      <Buttons direction="/login" type="normal" name="Get Started" />
+    </h1>
+    <Image src={writer} alt="writer_image" class="principal_image" />
+  </div>
+</main>
+
+<style>
+  .main_container {
+    position: relative;
+    display: flex;
+    left: 15px;
+  }
+  .principal_image {
+    width: 360px;
+    height: 500px;
+    margin-right: 60px;
+  }
+  h1 {
+    margin-left: 20px;
+    font-size: 4.5rem;
+    color: rgb(255, 255, 255);
+  }
+  a {
+    color: rgb(162, 1, 162);
+  }
+</style>
