@@ -14,6 +14,10 @@ import Header from "../components/Header/Header.astro";
       href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Bucverse</title>
   </head>
   <body>
@@ -25,8 +29,15 @@ import Header from "../components/Header/Header.astro";
 <style is:global>
   :root {
     --principal-font: "Gabarito";
+    --color-just-black: #0e100f;
   }
 
+  body {
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: var(--color-just-black);
+    box-sizing: border-box;
+  }
   h1,
   h2,
   h3,

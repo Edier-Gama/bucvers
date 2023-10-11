@@ -1,20 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
+import writer from "../../public/assets/writer.svg";
+import Buttons from "../components/Buttons/Buttons.astro";
 ---
 
 <Layout>
-  <main>
-    <h1>The app for <a>writers</a> <br /> that <a>scales</a> with you</h1>
+  <main class="animate__animated animate__slideInLeft">
+    <div class="main_container">
+      <h1>
+        The app for <a>writers</a>
+        <br /> that <a>scales</a> with you
+        <Buttons direction="/login" type="normal" name="Get Started   -->" />
+      </h1>
+      <Image src={writer} alt="writer_image" class="principal_image" />
+    </div>
+    <section></section>
   </main>
 </Layout>
 
 <style>
+  .main_container {
+    position: relative;
+    display: flex;
+    left: 15px;
+  }
+  .principal_image {
+    width: 360px;
+    height: 500px;
+    margin-right: 60px;
+  }
   h1 {
     margin-left: 20px;
-    font-size: 3.5rem;
+    font-size: 4.5rem;
+    color: rgb(255, 255, 255);
   }
   a {
-    color: blueviolet;
+    color: rgb(162, 1, 162);
   }
 </style>
