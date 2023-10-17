@@ -1,9 +1,13 @@
 ---
-const { direction: href, type: clase, name: name } = Astro.props;
+const {
+  query: query,
+  styleClass: styleClass,
+  buttonContent: content,
+} = Astro.props;
 ---
 
-<button class={clase}>
-  <a href={href}>{name}</a>
+<button class={styleClass}>
+  <a href={query}>{content}</a>
 </button>
 
 <style>
@@ -12,45 +16,23 @@ const { direction: href, type: clase, name: name } = Astro.props;
     color: var(--fonts-color);
     text-decoration: none;
     font-size: 18px;
-    color: white;
+    color: black;
   }
 
   button {
     position: relative;
     height: 40px;
-    width: 120px;
-    background: #0e100f;
+    width: 140px;
+    background: #ffffff;
     cursor: pointer;
     color: azure;
     border: none;
     position: relative;
     margin-left: 5px;
-  }
-  .float {
-    transition:
-      0.5s,
-      color 0.1s;
-    -webkit-transition:
-      0.5s,
-      color 0.1s;
-    -moz-transition:
-      0.5s,
-      color 0.1s;
-  }
-  .float:hover {
-    border: 2px purple solid;
-    border-radius: 10px;
-    box-shadow:
-      0 8px 8px 0 #000000,
-      0 8px 8px 0 #000000;
-    transform: translate(0px, 5px);
-    -webkit-transform: translate(0px, 5px);
-    -moz-transform: translate(0px, 5px);
+    border: 2px solid purple;
   }
 
-  .normal {
-    width: 200px;
-    border: 2px solid purple;
+  .transRight {
     transition:
       0.5s,
       color 0.1s;
@@ -61,9 +43,28 @@ const { direction: href, type: clase, name: name } = Astro.props;
       0.5s,
       color 0.1s;
   }
-  .normal:hover {
+  .transRight:hover {
     transform: translatex(20px);
     -webkit-transform: translatex(20px);
     -moz-transform: translatex(20px);
+  }
+
+  .transDown {
+    border: none;
+    important: !important;
+    transition:
+      0.5s,
+      color 0.1s;
+    -webkit-transition:
+      0.5s,
+      color 0.1s;
+    -moz-transition:
+      0.5s,
+      color 0.1s;
+  }
+  .transDown:hover {
+    transform: translatey(5px);
+    -webkit-transform: translatey(5px);
+    -moz-transform: translatey(5px);
   }
 </style>

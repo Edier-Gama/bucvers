@@ -11,7 +11,11 @@ import Header from "../header/header.astro";
     <h1>
       The app for <a>writers</a>
       <br /> that <a>scales</a> with you
-      <Buttons direction="/login" type="normal" name="Get Started" />
+      <Buttons
+        query="/login"
+        styleClass="transRight"
+        buttonContent="Get Started"
+      />
     </h1>
     <Image src={writer} alt="writer_image" class="principal_image" />
   </div>
@@ -31,7 +35,6 @@ import Header from "../header/header.astro";
   h1 {
     margin-left: 20px;
     font-size: 4.5rem;
-    color: rgb(255, 255, 255);
   }
   a {
     color: rgb(162, 1, 162);

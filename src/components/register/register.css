@@ -1,0 +1,73 @@
+body {
+    height: 660px;
+}
+h1 {
+    font-size: 30px;
+}
+.formSection {
+    margin-top: 5%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 7%;
+}
+.formSection p {
+    position: relative;
+    top: -10px;
+}
+.formSection input {
+    position: relative;
+    top: -20px;
+    width: 360px;
+    height: 50px;
+    padding-left: 15px;
+    font-size: 18px;
+    font-family: 'Gabarito';
+    border-radius: 8px;
+
+}
+.formSection input:focus{
+    outline: none;
+}
+.formSection button {
+    margin-top: 20px;
+    height: 50px;
+    width: 380px;
+    cursor: pointer;
+    background-color: white;
+    font-family: 'Montserrat';
+    border-radius: 5px;
+    font-size: 17px;
+}
+.formSection button:active {
+    transform: scale(0.9)
+}
+.formSection button {
+    transition: all 1s ease;
+  }
+
+  .fm-fl-green {
+    border: 2px solid rgb(104, 208, 24); 
+  }
+  .fm-fl-onhold {
+    border: 2px solid rgb(182, 177, 177); 
+  }
+
+.welcome_image {
+    width: 580px;
+    margin-right: 10%;
+    margin-left: 16%;
+}
+.error-popup {
+    top: 8%;
+    position: relative;
+    padding: 25px;
+    max-width: 360px;
+    border-radius: 10px;
+    height: 40px;
+    border: 2px solid red;
+    background-color: rgb(254, 183, 183);
+}
+.error-popup p {
+    color: red;
+}

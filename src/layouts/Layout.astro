@@ -1,5 +1,5 @@
 ---
-import Header from "../components/header/header.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -11,38 +11,39 @@ import Header from "../components/header/header.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <ViewTransitions />
     <title>Bucverse</title>
   </head>
   <body>
     <slot />
+    <style is:global>
+      :root {
+        --principal-font: "Montserrat";
+        --color-just-black: white;
+      }
+
+      body {
+        overflow-x: hidden;
+        margin: 0 auto;
+        max-width: 1200px;
+        background-color: var(--color-just-black);
+        box-sizing: border-box;
+      }
+      h1,
+      h2,
+      h3,
+      p,
+      a {
+        color: black;
+        font-family: var(--principal-font);
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --principal-font: "Gabarito";
-    --color-just-black: #0e100f;
-  }
-
-  body {
-    overflow-x: hidden;
-    margin: 0 auto;
-    max-width: 1200px;
-    background-color: var(--color-just-black);
-    box-sizing: border-box;
-  }
-  h1,
-  h2,
-  h3,
-  p,
-  a {
-    font-family: var(--principal-font);
-  }
-</style>

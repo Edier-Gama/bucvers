@@ -1,13 +1,13 @@
 ---
-import Buttons from "../Buttons/Buttons.astro";
-const response = await fetch("http://localhost:3000/users");
-const data = await response.json();
+import Buttons from "../buttons/buttons.astro";
+// const response = await fetch("http://localhost:3000/users");
+// const data = await response.json();
 ---
 
 <header>
   <nav>
-    <Buttons direction="/signup" type="float" name="Sign Up" />
-    <Buttons direction="/login" type="float" name="Log In" />
+    <Buttons query="/register" styleClass="transDown" buttonContent="Sign Up" />
+    <Buttons query="/login" styleClass="transDown" buttonContent="Log In" />
   </nav>
 </header>
 
