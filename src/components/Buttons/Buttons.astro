@@ -6,30 +6,17 @@ const {
 } = Astro.props;
 ---
 
-<button class={styleClass}>
-  <a href={query}>{content}</a>
-</button>
+<a href={query} class={styleClass}>{content}</a>
 
 <style>
   a {
-    margin: 10px;
-    color: var(--fonts-color);
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-  }
-
-  button {
     position: relative;
     height: 40px;
-    width: 140px;
-    background: #ffffff;
+    width: 90px;
     cursor: pointer;
-    color: azure;
-    border: none;
     position: relative;
-    margin-left: 5px;
-    border: 2px solid purple;
+    text-decoration: none;
+    font-size: 18px;
   }
 
   .transRight {
@@ -50,8 +37,6 @@ const {
   }
 
   .transDown {
-    border: none;
-    important: !important;
     transition:
       0.5s,
       color 0.1s;

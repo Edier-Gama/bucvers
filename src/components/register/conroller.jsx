@@ -1,23 +1,18 @@
 import { sendUsers } from '../../services/sendUsers'
 
-const sendUsersData = (user, email, password, setDataStatus) => {
-  const conditions = {
-    validUser: user,
-    validEmail: email,
-    validPassword: password,
-    validLongerPass: password.length > 10
-  }
-  if (conditions.validUser && conditions.validEmail && conditions.validPassword && conditions.validLongerPass) {
+const sendUsersData = (event, firstName, lastName, username, email, password, setDataStatus) => {
+  event.preventDefault()
+
+  if (username && email && password && firstName && lastName) {
     setDataStatus(true)
-    sendUsers(user, email, password)
+
+    sendUsers(firstName, lastName, username, email, password)
       .then(() => {
         console.log('User created successfully')
       })
       .catch((error) => {
         console.error('There was an error: ' + error)
       })
-  } else {
-    setDataStatus(false)
   }
 }
 

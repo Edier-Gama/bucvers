@@ -1,4 +1,4 @@
-export async function sendUsers (username, email, password) {
+export async function sendUsers (firstName, lastName, username, email, password) {
   try {
     await fetch('http://localhost:3000/api/users', {
       method: 'POST',
@@ -6,6 +6,8 @@ export async function sendUsers (username, email, password) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        firstName,
+        lastName,
         username,
         email,
         password

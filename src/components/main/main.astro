@@ -1,42 +1,35 @@
 ---
 import { Image } from "astro:assets";
 import writer from "../../public/assets/writer.svg";
+import post from "../../public/assets/post.svg";
+import profile from "../../public/assets/profile.svg";
+import chat from "../../public/assets/chat.svg";
+
 import Buttons from "../buttons/buttons.astro";
 import Header from "../header/header.astro";
+import Card from "../card/card.astro";
+const chatCardTitle = "Realtime chat ...";
+const chatCardContent = "send messages to your friends";
+const postCardContent = "Make posts, and tell what is happening worldwide";
+const postCardTitle = "Share your stories ...";
 ---
 
-<main class="animate__animated animate__slideInLeft">
+<main>
   <Header />
-  <div class="main_container">
-    <h1>
-      The app for <a>writers</a>
-      <br /> that <a>scales</a> with you
-      <Buttons
-        query="/login"
-        styleClass="transRight"
-        buttonContent="Get Started"
-      />
-    </h1>
-    <Image src={writer} alt="writer_image" class="principal_image" />
-  </div>
+  <section class="cards-section" id="about">
+    <Card
+      image={post}
+      title={postCardTitle}
+      content={postCardContent}
+      styleClass="false"
+    />
+    <Card
+      image={chat}
+      title={chatCardTitle}
+      content={chatCardContent}
+      styleClass="true"
+    />
+  </section>
 </main>
 
-<style>
-  .main_container {
-    position: relative;
-    display: flex;
-    left: 15px;
-  }
-  .principal_image {
-    width: 360px;
-    height: 500px;
-    margin-right: 60px;
-  }
-  h1 {
-    margin-left: 20px;
-    font-size: 4.5rem;
-  }
-  a {
-    color: rgb(162, 1, 162);
-  }
-</style>
+<style></style>

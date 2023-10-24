@@ -1,0 +1,113 @@
+---
+const {
+  content: content,
+  title: title,
+  image: image,
+  styleClass: styleClass,
+} = Astro.props;
+
+const reversedCard = styleClass;
+---
+
+<section>
+  {
+    reversedCard === "true" && (
+      <article class="card">
+        <div class="card-header">
+          <h2>{title}</h2>
+          <div class="card-content">
+            <p>
+              Real-time chats provide instant communication, enabling quick
+              decision-making and efficient collaboration
+            </p>
+            <p>
+              Multimedia support allows users to share images, videos, and
+              documents for enhanced interaction.
+            </p>
+            <p>
+              End-to-end encryption offers secure and private communication for
+              users
+            </p>
+          </div>
+        </div>
+        <img src={image.src} alt="post" width="400px" />
+      </article>
+    )
+  }
+  {
+    reversedCard === "false" && (
+      <article class="card">
+        <img src={image.src} alt="post" width="400px" />
+        <div class="card-header">
+          <h2>{title}</h2>
+          <div class="card-content">
+            <p>
+              create and share posts, photos, and videos with your connections
+            </p>
+            <p>
+              personalize your profile, adding profile pictures and cover photos
+              to create a unique online identity on the platform
+            </p>
+            <p>
+              Friend requests and connections allow users to expand their
+              network
+            </p>
+          </div>
+        </div>
+      </article>
+    )
+  }
+</section>
+
+<style>
+  @font-face {
+    font-family: "Montserrat";
+    src: url(../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+  }
+  h2 {
+    color: white;
+    font-family: "Gabarito";
+    font-size: 3rem;
+  }
+
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 70px;
+  }
+  .card-header {
+    position: relative;
+    margin: 5%;
+  }
+  .card-content p {
+    padding: 5%;
+    max-width: 500px;
+    border-radius: 10px;
+    font-family: "Montserrat";
+    color: white;
+    border: 2px solid rgb(25, 255, 121);
+  }
+  @keyframes show {
+    from {
+      opacity: 0;
+      scale: 25%;
+    }
+
+    to {
+      opacity: 1;
+      scale: 100%;
+    }
+  }
+
+  article {
+    view-timeline-name: --article;
+    view-timeline-axis: block;
+
+    animation-timeline: --article;
+    animation-name: show;
+
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+  }
+</style>

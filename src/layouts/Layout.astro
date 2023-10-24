@@ -5,14 +5,11 @@ import { ViewTransitions } from "astro:transitions";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600&display=swap"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="bucverse principal web, connect with people arround de world"
     />
     <link
       rel="stylesheet"
@@ -24,11 +21,18 @@ import { ViewTransitions } from "astro:transitions";
   <body>
     <slot />
     <style is:global>
-      :root {
-        --principal-font: "Montserrat";
-        --color-just-black: white;
+      @font-face {
+        font-family: "Gabarito";
+        src: url(../public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf);
       }
-
+      :root {
+        --principal-font: "Gabarito";
+        --color-just-black: #13161c;
+        --color-just-white: white;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         overflow-x: hidden;
         margin: 0 auto;
@@ -41,8 +45,8 @@ import { ViewTransitions } from "astro:transitions";
       h3,
       p,
       a {
-        color: black;
-        font-family: var(--principal-font);
+        color: var(--color-just-white);
+        font-family: "Gabarito";
       }
     </style>
   </body>
