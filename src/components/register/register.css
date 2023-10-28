@@ -43,6 +43,7 @@ h1 {
 }
 .formSection button {
     margin-top: 10px;
+    margin-bottom: 10px ;
     height: 50px;
     width: 103%;
     cursor: pointer;
@@ -58,26 +59,5 @@ h1 {
 }
 .formSection button {
     transition: all 1s ease;
-  }
-
-
-
-.welcome_image {
-    width: 580px;
-    margin-right: 10%;
-    margin-left: 16%;
 }
-.error-popup {
-    top: 8%;
-    position: relative;
-    padding: 25px;
-    max-width: 360px;
-    border-radius: 10px;
-    height: 40px;
-    border: 2px solid var(--principal-color);
-    background-color: white;
-}
-.error-popup p {
-    color: black;
-    font-family: 'Montserrat';
-}
+

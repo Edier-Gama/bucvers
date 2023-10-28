@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { sendUsersData } from './conroller'
+import { validateForm } from './validateForm'
+import { sendUsersToDataBase } from './sendUsers'
 import './register.css'
 
 function Register () {
@@ -9,6 +10,7 @@ function Register () {
   const [firstName, setFirstname] = useState()
   const [lastName, setLastname] = useState()
   const [dataStatus, setDataStatus] = useState()
+  const route = `/profile/${username}`
 
   const userStatus = username ? 'fm-fl-green' : 'fm-fl-onhold'
   const emailStatus = email ? 'fm-fl-green' : 'fm-fl-onhold'
@@ -20,8 +22,9 @@ function Register () {
         <div>
           <h1>Welcome to Bucvers</h1>
           <form
-            action=''
-            onSubmit={(event) => sendUsersData(event, firstName, lastName, username, email, password, setDataStatus)}
+            method='post'
+            action='http://localhost:3000/api/users'
+            onSubmit={(event) => validateForm(event, firstName, lastName, username, email, password, setDataStatus)}
           >
             <p>First Name</p>
             <input
@@ -64,12 +67,18 @@ function Register () {
             />
 
             <br />
-            <button
-              className='float'
-              type='submit'
-            >register
-            </button>
-            {dataStatus && <p>Se está iniciando su sesión...</p>}
+            {!dataStatus && <button type='submit'>validate data</button>}
+
+            {dataStatus &&
+              <a href={route}>
+                <button
+                  className='float'
+                  type='submit'
+                  onClick={() => sendUsersToDataBase(firstName, lastName, username, email, password)}
+                >register
+                </button>
+              </a>}
+
           </form>
         </div>
         <aside />

@@ -1,3 +1,5 @@
+'use client'
+
 export async function sendUsers (firstName, lastName, username, email, password) {
   try {
     await fetch('http://localhost:3000/api/users', {
