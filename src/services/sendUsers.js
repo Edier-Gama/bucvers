@@ -1,8 +1,6 @@
-'use client'
-
 export async function sendUsers (firstName, lastName, username, email, password) {
   try {
-    await fetch('http://localhost:3000/api/users', {
+    const res = await fetch('http://localhost:3000/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -15,8 +13,10 @@ export async function sendUsers (firstName, lastName, username, email, password)
         password
       })
     })
-    console.log('Everything was good')
+    const data = await res.json()
+    return data
   } catch (error) {
-    console.error('There was an error doing your request:' + error)
+    console.error(error)
+    return error
   }
 }
