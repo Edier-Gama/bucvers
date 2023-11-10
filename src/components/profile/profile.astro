@@ -1,0 +1,12 @@
+---
+
+---
+<h2 id="title"></h2>
+
+<script is:inline>
+  const user = JSON.parse(window.localStorage.getItem('userCredential'))
+  const text = document.getElementById('title')
+  text.innerText = 'Welcome to your profile ' + user.username
+</script>
+
+
