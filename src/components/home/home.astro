@@ -1,19 +1,16 @@
 ---
 ---
-<h2 id="title"></h2>
 
 <script>
   import { getUsersAuth } from "../../services/getUserAuth";
-
-
-  const user = JSON.parse(window.localStorage.getItem('userCredential'))
+  const data = window.localStorage.getItem('userCredential')
+  const user = JSON.parse(data!)
   if(user) {
     getUsersAuth(user._id)
     .then((data) => {
       if(data._id === user._id){
         console.log(data);
         const text = document.getElementById('title')
-        text.innerText = 'Welcome to your profile ' + data.username
       } else {
         window.location.href = '/register'
       }
@@ -22,5 +19,3 @@
     window.location.href = '/register'
   }
 </script>
-
-

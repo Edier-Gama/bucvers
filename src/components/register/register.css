@@ -1,9 +1,10 @@
 body {
-    height: 610px;
+    height: 640px;
 }
+
 @font-face {
-    font-family: "Montserrat";
-    src: url(../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+    font-family: "Gabarito";
+    src: url(../../public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf);
 }
 :root {
     --principal-font: 'Gabarito';
@@ -20,6 +21,7 @@ h1 {
     justify-content: center;
     margin:5%;
     top: -5%;
+    font-family: var(--principal-font);
 }
 .formSection p {
     font-family: var(--principal-font);
@@ -35,6 +37,7 @@ h1 {
     margin-right: 16px;
     border: 1px solid white;
     font-size: 17px;
+    border: 2px solid rgb(20, 20, 20);
     font-family: var(--principal-font);
     border-radius: 5px;
 }

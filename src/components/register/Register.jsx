@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { sendUsers } from '../../services/sendUsers'
 import './register.css'
+import { getUsersAuth } from '../../services/getUserAuth'
 
 function Register () {
   const [error, setError] = useState()
@@ -9,17 +10,25 @@ function Register () {
   const [password, setPassword] = useState()
   const [firstName, setFirstname] = useState()
   const [lastName, setLastname] = useState()
-  const [user, setUser] = useState()
+  const [user, setUser] = useState(undefined)
 
   const userStatus = username ? 'fm-fl-green' : 'fm-fl-onhold'
   const emailStatus = email ? 'fm-fl-green' : 'fm-fl-onhold'
   const pswStatus = password ? 'fm-fl-green' : 'fm-fl-onhold'
 
   useEffect(() => {
-    const userData = window.localStorage.getItem('userCredential')
-    if (userData) {
-      const userInfo = JSON.parse(userData)
-      setUser(userInfo)
+    const data = window.localStorage.getItem('userCredential')
+    const parsedData = JSON.parse(data)
+    if (parsedData) {
+      getUsersAuth(parsedData._id)
+        .then((data) => {
+          if (data._id === parsedData._id) {
+            setUser(data)
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
   }, [])
 
@@ -87,7 +96,7 @@ function Register () {
                 />
 
                 <br />
-                <button type='submit'>Send</button>
+                <button type='submit'>Sign Up</button>
                 {error}
               </form>
             </div>
