@@ -1,0 +1,100 @@
+---
+import Button from "./Buttons.astro";
+import main_text from "../public/fonts/principal_font_image.png"
+---
+<nav>
+  <Button query="/login" buttonContent="Register" styleClass="transDown"></Button>
+  <button><a href="/register">Get Started</a></button>
+</nav>
+<header class="main_container">
+  
+  <div class="main-section">
+    <h1>La app para <b>escritores </b> <br/>que <b>crece</b> contigo</h1>
+    <p>Crea columnas,
+      libros, notas y compartelas con todo el mundo, recuerda que pagamos un 
+      80 % a los escritores de las ventas de sus libros</p>
+  </div>
+  <aside class="main-aside">
+    <input type="text" placeholder="Qué quieres aprender hoy" spellcheck="false">
+  </aside>
+</header>
+
+<style>
+  @font-face {
+    font-family: "Montserrat";
+    src: url('../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+  }
+  nav {
+    position: relative;
+    display: flex;
+    justify-content: right;
+    margin: 2%;
+    z-index: 1;
+  }
+  button {
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+  }
+  button a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .main_container {
+    position: relative;
+    top: -100px;
+  }
+  .main-section {
+    padding: 5%;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    font-size: 4.5rem;
+    font-weight: bold;
+    font-family: 'Montserrat';
+  }
+  b {
+    color: rgb(29, 201, 101);
+  }
+
+  p {
+    font-family: "Montserrat";
+    max-width: 700px;
+    font-size: 1.3rem;
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+  }
+
+  .main-aside {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+  }
+  input {
+    max-width: 600px;
+    width: 80%;
+    height: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid white;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+  input:focus {
+    outline: none;
+  }
+  input::placeholder {
+    font-family: 'Montserrat';
+    font-size: 1rem;
+  }
+
+  
+</style>

@@ -1,6 +1,3 @@
-body {
-    height: 640px;
-}
 
 @font-face {
     font-family: "Gabarito";
@@ -8,47 +5,49 @@ body {
 }
 :root {
     --principal-font: 'Gabarito';
-    --principal-color: rgb(25, 255, 121);
+    --principal-color: rgb(0, 219, 91);
 }
-
 h1 {
-    font-size: 36px;
+    margin-left: 3.5%;
+    font-size: 2rem;
+}
+p {
+    max-width: 320px;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: rgb(9, 179, 9);
 }
 
 .formSection {
-    position: relative;
     display: flex;
     justify-content: center;
-    margin:5%;
-    top: -5%;
+    margin: 0 auto;
+    max-width: 350px;
     font-family: var(--principal-font);
 }
-.formSection p {
-    font-family: var(--principal-font);
-    position: relative;
-    top: -10px;
-}
+
 .formSection input {
     position: relative;
-    top: -20px;
     width: 100%;
-    height: 40px;
-    padding-left: 8px;
-    margin-right: 16px;
-    border: 1px solid white;
+    height: 45px;
+    padding-left: 15px;
+    margin-top: 15px;
     font-size: 17px;
-    border: 2px solid rgb(20, 20, 20);
+    max-width: 310px;
     font-family: var(--principal-font);
     border-radius: 5px;
-}
-.formSection input:focus{
     outline: none;
+    border: 2.3px solid rgb(74, 74, 74);
+    transition: border-color 0.3s ease-in-out;
 }
+
 .formSection button {
-    margin-top: 10px;
-    margin-bottom: 10px ;
+    margin-top: 15px;
     height: 50px;
-    width: 103%;
+    width: 100%;
+    max-width: 331px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
@@ -57,10 +56,18 @@ h1 {
     background-color: var(--principal-color);
     color: rgb(57, 57, 57);
 }
+.formSection input:focus {
+    border-color:var(--principal-color)
+    
+}
 .formSection button:active {
     transform: scale(0.8)
 }
 .formSection button {
     transition: all 1s ease;
+}
+
+.errorMessage p {
+    color: rgb(255, 55, 55);
 }
 

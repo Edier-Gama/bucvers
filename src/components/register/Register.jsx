@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { sendUsers } from '../../services/sendUsers'
+import { sendUsers } from '../services/sendUsers'
 import './register.css'
-import { getUsersAuth } from '../../services/getUserAuth'
+import { getUsersAuth } from '../services/getUserAuth'
 
 function Register () {
   const [error, setError] = useState()
@@ -11,10 +11,6 @@ function Register () {
   const [firstName, setFirstname] = useState()
   const [lastName, setLastname] = useState()
   const [user, setUser] = useState(undefined)
-
-  const userStatus = username ? 'fm-fl-green' : 'fm-fl-onhold'
-  const emailStatus = email ? 'fm-fl-green' : 'fm-fl-onhold'
-  const pswStatus = password ? 'fm-fl-green' : 'fm-fl-onhold'
 
   useEffect(() => {
     const data = window.localStorage.getItem('userCredential')
@@ -32,8 +28,8 @@ function Register () {
     }
   }, [])
 
-  const redirectToProfile = () => {
-    window.location.href = '/profile'
+  const redirectToHome = () => {
+    window.location.href = '/home'
   }
 
   const sendData = (event) => {
@@ -42,7 +38,7 @@ function Register () {
       .then((data) => {
         if (data.status === 200) {
           window.localStorage.setItem('userCredential', JSON.stringify(data.userData))
-          redirectToProfile()
+          redirectToHome()
         }
         if (data.status === 400) {
           setError(data.message)
@@ -59,51 +55,60 @@ function Register () {
         <div>
           <section className='formSection'>
             <div>
-              <h1>Welcome to Bucvers</h1>
+              <h1>Create your Account</h1>
+              <p>Welcome to Bucvers, the information you provide will be used exclusively for identity verification and security purposes</p>
               <form
                 method='post'
                 action='http://localhost:3000/api/users'
                 onSubmit={(event) => sendData(event)}
               >
-                <p>First Name</p>
                 <input
                   type='text'
                   onChange={(event) => setFirstname(event.target.value)}
-                  className={userStatus}
-                /><p>Last Name</p>
+                  placeholder='Firstname'
+                  required
+                  minLength={5}
+                />
                 <input
                   type='text'
                   onChange={(event) => setLastname(event.target.value)}
-                  className={userStatus}
+                  placeholder='Lastname'
+                  required
+                  minLength={5}
                 />
-                <p>User Name</p>
                 <input
                   type='text'
                   onChange={(event) => setUsername(event.target.value)}
-                  className={userStatus}
+                  placeholder='Username'
+                  required
+                  minLength={5}
                 />
-                <p>Email</p>
                 <input
                   type='email'
                   onChange={(event) => setEmail(event.target.value)}
-                  className={emailStatus}
+                  placeholder='Email'
                 />
-                <p>Password</p>
+                {error &&
+                  <div className='errorMessage'>
+                    <p>{error}</p>
+                  </div>}
                 <input
                   type='password'
                   onChange={(event) => setPassword(event.target.value)}
-                  className={pswStatus}
+                  placeholder='Password'
                 />
 
                 <br />
                 <button type='submit'>Sign Up</button>
-                {error}
+                <br />
+                <p>¿ Already have an account ? <a href='/home'>Sign In</a></p>
+                <br />
               </form>
             </div>
             <aside />
           </section>
         </div>}
-      {user && redirectToProfile()}
+      {user && redirectToHome()}
     </>
   )
 }

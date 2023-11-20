@@ -1,0 +1,47 @@
+---
+import home from '../../public/assets/home.png'
+import account from '../../public/assets/account.png'
+import books from '../../public/assets/book.png'
+import addBook from '../../public/assets/book_add.png'
+---
+<header>
+  
+  <section class="header-section">
+    <a href="">Books</a>
+    <a href="">Categories</a>
+    <a href="">Messages</a>
+    <a href="">Create Book</a>
+
+  </section>
+</header>
+
+
+<style>
+  a {
+    margin: 10px;
+    margin-top:20px;
+    text-decoration: none;
+  }
+  .header-section {
+    padding: 25px;
+  }
+</style>
+<script>
+  import { getUsersAuth } from "../services/getUserAuth";
+
+
+const user = JSON.parse(window.localStorage.getItem('userCredential'))
+if(user) {
+  getUsersAuth(user._id)
+  .then((data) => {
+    if(data._id === user._id){
+      const text = document.getElementById('welcome_text')
+      text.innerText = `Welcome to Bucvers ${data.firstname} ${data.lastname}`
+    } else {
+      window.location.href = '/register'
+    }
+  })
+} else {
+  window.location.href = '/register'
+}
+</script>

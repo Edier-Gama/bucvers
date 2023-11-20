@@ -1,8 +1,8 @@
 ---
-import post from "../../public/assets/post.svg";
-import chat from "../../public/assets/chat.svg";
-import Header from "../header/header.astro";
-import Card from "../card/card.astro";
+import post from "../public/assets/post.svg";
+import chat from "../public/assets/chat.svg";
+import Header from "./Header.astro";
+import Card from "./Card.astro";
 const chatCardTitle = "Realtime chat ...";
 const chatCardContent = "send messages to your friends";
 const postCardContent = "Make posts, and tell what is happening worldwide";
@@ -27,4 +27,11 @@ const postCardTitle = "Share your stories ...";
   </section>
 </main>
 
-<style></style>
+<style>
+  @media (max-width: 590px) {
+    .cards-section {
+      position: relative;
+      top: 100px;
+    }
+  }
+</style>
