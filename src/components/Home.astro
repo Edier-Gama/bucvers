@@ -1,29 +1,33 @@
 ---
-import home from '../../public/assets/home.png'
-import account from '../../public/assets/account.png'
-import books from '../../public/assets/book.png'
-import addBook from '../../public/assets/book_add.png'
+import trending from '../public/assets/trending.svg'
+import account from '../public/assets/account.svg'
+import logout from '../public/assets/logout.svg'
+import books from '../public/assets/book.svg'
+import addBook from '../public/assets/book_add.png'
+import settings from '../public/assets/settings.svg'
+import Input from './Input.astro'
 ---
 <header>
   
   <section class="header-section">
-    <a href="">Books</a>
-    <a href="">Categories</a>
-    <a href="">Messages</a>
-    <a href="">Create Book</a>
-
+    <a href=""><img src={addBook.src} alt="" width="30px" height="30px"></a>
+    <a href=""><img src={trending.src} alt="" width="30px" height="30px"></a>
+    <a href=""><img src={books.src} alt="" width="30px" height="30px"></a>
+    <Input placeholder="Qué quieres aprender hoy" type="text"/>
+    <a href=""><img src={account.src} alt="" width="30px" height="30px"></a>
+    <a href=""><img src={settings.src} alt="" width="30px" height="30px"></a>
+    <a href=""><img src={logout.src} alt="" width="30px" height="30px"></a>
   </section>
 </header>
 
 
 <style>
-  a {
-    margin: 10px;
-    margin-top:20px;
-    text-decoration: none;
-  }
   .header-section {
     padding: 25px;
+    display: flex;
+  }
+  img {
+    margin: 8px;
   }
 </style>
 <script>

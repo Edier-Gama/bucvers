@@ -1,0 +1,46 @@
+---
+const {placeholder: placeholder, type: type} = Astro.props
+---
+
+<input type={type} placeholder={placeholder} spellcheck="false">
+
+ <style>
+  @font-face {
+    font-family: "Gabarito";
+    src: url(../../public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf);
+  }
+  :root {
+    --principal-font: 'Gabarito';
+    --principal-color: rgb(29, 201, 101);
+    --color-just-black: #13161c;
+    --color-just-white: #181616;
+  }
+
+  input {
+    width: 80%;
+    height: 11px;
+    margin: 0 auto;
+    color: white;
+    outline: none;
+    padding: 15px;
+    display: block;
+    font-size: 1rem;
+    max-width: 600px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #090a0e;
+    font-family: var(--principal-font);
+    border: 1px solid #3f3f3f;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input::placeholder {
+    font-family: var(--principal-font);
+    font-size: 1rem;
+    padding-left: 2%;
+  }
+  input:focus {
+    border-color: rgb(55, 110, 212);
+    
+}
+ </style>

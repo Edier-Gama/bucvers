@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
-import { sendUsers } from '../services/sendUsers'
+import { sendUsers } from '../../services/sendUsers'
 import './register.css'
-import { getUsersAuth } from '../services/getUserAuth'
+import { checkUserCredential } from '../../services/getUserAuth'
+import { sendData, redirectToHome } from '../../services/sendData'
+import { Loading } from './Loading'
+import { types } from '../../services/types'
 
 function Register () {
   const [error, setError] = useState()
@@ -13,45 +16,12 @@ function Register () {
   const [user, setUser] = useState(undefined)
 
   useEffect(() => {
-    const data = window.localStorage.getItem('userCredential')
-    const parsedData = JSON.parse(data)
-    if (parsedData) {
-      getUsersAuth(parsedData._id)
-        .then((data) => {
-          if (data._id === parsedData._id) {
-            setUser(data)
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    }
+    checkUserCredential(setUser)
   }, [])
-
-  const redirectToHome = () => {
-    window.location.href = '/home'
-  }
-
-  const sendData = (event) => {
-    event.preventDefault()
-    sendUsers(firstName, lastName, username, email, password)
-      .then((data) => {
-        if (data.status === 200) {
-          window.localStorage.setItem('userCredential', JSON.stringify(data.userData))
-          redirectToHome()
-        }
-        if (data.status === 400) {
-          setError(data.message)
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
 
   return (
     <>
-      {user === undefined &&
+      {user === types.LOGGEDOUT &&
         <div>
           <section className='formSection'>
             <div>
@@ -60,33 +30,37 @@ function Register () {
               <form
                 method='post'
                 action='http://localhost:3000/api/users'
-                onSubmit={(event) => sendData(event)}
+                onSubmit={(event) => sendData(event, sendUsers, setError, firstName, lastName, username, email, password)}
               >
                 <input
-                  type='text'
                   onChange={(event) => setFirstname(event.target.value)}
                   placeholder='Firstname'
-                  required
+                  spellcheck='false'
                   minLength={5}
+                  type='text'
+                  required
                 />
                 <input
-                  type='text'
                   onChange={(event) => setLastname(event.target.value)}
                   placeholder='Lastname'
-                  required
+                  spellcheck='false'
                   minLength={5}
+                  type='text'
+                  required
                 />
                 <input
                   type='text'
                   onChange={(event) => setUsername(event.target.value)}
                   placeholder='Username'
-                  required
+                  spellcheck='false'
                   minLength={5}
+                  required
                 />
                 <input
-                  type='email'
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder='Email'
+                  spellcheck='false'
+                  type='email'
                 />
                 {error &&
                   <div className='errorMessage'>
@@ -101,14 +75,15 @@ function Register () {
                 <br />
                 <button type='submit'>Sign Up</button>
                 <br />
-                <p>¿ Already have an account ? <a href='/home'>Sign In</a></p>
+                <p>¿ Already have an account ? <a href='/login'>Sign In</a></p>
                 <br />
               </form>
             </div>
             <aside />
           </section>
         </div>}
-      {user && redirectToHome()}
+      {user === types.LOGGEDIN && redirectToHome()}
+      {user === types.LOADING && <Loading />}
     </>
   )
 }

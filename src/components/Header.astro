@@ -1,6 +1,7 @@
 ---
 import Button from "./Buttons.astro";
 import main_text from "../public/fonts/principal_font_image.png"
+import Input from "./Input.astro";
 ---
 <nav>
   <Button query="/login" buttonContent="Register" styleClass="transDown"></Button>
@@ -15,7 +16,7 @@ import main_text from "../public/fonts/principal_font_image.png"
       80 % a los escritores de las ventas de sus libros</p>
   </div>
   <aside class="main-aside">
-    <input type="text" placeholder="Qué quieres aprender hoy" spellcheck="false">
+    <Input placeholder="Qué quieres aprender hoy" type="text"/>
   </aside>
 </header>
 
